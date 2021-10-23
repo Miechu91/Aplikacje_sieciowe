@@ -34,7 +34,7 @@ if ( $procent == "") {
 //nie ma sensu walidować dalej gdy brak parametrów
 if (empty( $messages )) {
 	
-	// sprawdzenie, czy $x i $y są liczbami całkowitymi
+	// sprawdzenie, czy $kwota, $lata, $procent są liczbami
 	if (! is_numeric( $kwota )) {
 		$messages [] = 'Kwota nie jest liczbą';
 	}
@@ -50,7 +50,7 @@ if (empty( $messages )) {
 
 if (empty ( $messages )) { // gdy brak błędów
 	
-	//konwersja parametrów na int
+	//konwersja parametrów na int i double
     $kwota = doubleval($kwota);
     $lata = intval($lata);
     $procent = doubleval($procent);
@@ -62,6 +62,6 @@ if (empty ( $messages )) { // gdy brak błędów
 }
 
 // 4. Wywołanie widoku z przekazaniem zmiennych
-// - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
+// - zainicjowane zmienne ($messages,$kwota,$lata,$procent,$result,$kwota_calkowita)
 //   będą dostępne w dołączonym skrypcie
 include 'calc_view.php';
