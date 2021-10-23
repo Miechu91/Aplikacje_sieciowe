@@ -47,6 +47,10 @@ if (empty( $messages )) {
     if (! is_numeric( $procent )) {
         $messages [] = 'Oprocentowanie nie jest liczbą';
     }
+
+    if ($kwota <= 0 || $lata <= 0 ) {
+        $messages [] = 'Kwota i okres kredytowania muszą być większe od 0';
+    }
 }
 
 // 3. wykonaj zadanie jeśli wszystko w porządku
