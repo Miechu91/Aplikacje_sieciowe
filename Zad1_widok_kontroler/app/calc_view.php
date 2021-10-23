@@ -8,17 +8,13 @@
 <body>
 
 <form action="<?php print(_APP_URL);?>/app/calc.php" method="post">
-	<label for="id_x">Liczba 1: </label>
-	<input id="id_x" type="text" name="x" value="<?php if (! (isset($x))){$x=0;} print($x); ?>" /><br />
-	<label for="id_op">Operacja: </label>
-	<select name="op">
-		<option value="plus">+</option>
-		<option value="minus">-</option>
-		<option value="times">*</option>
-		<option value="div">/</option>
-	</select><br />
-	<label for="id_y">Liczba 2: </label>
-	<input id="id_y" type="text" name="y" value="<?php if (! (isset($y))){$y=0;} print($y); ?>" /><br />
+	<label for="id_kwota">Kwota kredytu: </label>
+	<input id="id_kwota" type="text" name="kwota" value="<?php if (! (isset($kwota))){$kwota=0;} print($kwota); ?>" /> zł<br />
+	<label for="id_lata">Okres kredytowania: </label>
+	<input id="id_lata" type="text" name="lata" value="<?php if (! (isset($lata))){$lata=0;} print($lata); ?>" />
+    <?php if ($lata==2 || $lata==3 || $lata==4){print("lata");}else{print("lat");} ?><br />
+    <label for="id_procent">Oprocentowanie: </label>
+    <input id="id_procent" type="text" name="procent" value="<?php if (! (isset($procent))){$procent=0;} print($procent); ?>" /> %<br />
 	<input type="submit" value="Oblicz" />
 </form>	
 
@@ -37,7 +33,7 @@ if (isset($messages)) {
 
 <?php if (isset($result)){ ?>
 <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #ff0; width:300px;">
-<?php echo 'Wynik: '.$result; ?>
+<?php echo 'Miesięczna rata: '.$result; ?> zł
 </div>
 <?php } ?>
 
