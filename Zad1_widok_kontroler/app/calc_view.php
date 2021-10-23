@@ -31,9 +31,11 @@ if (isset($messages)) {
 }
 ?>
 
-<?php if (isset($result)){ ?>
+<?php if (isset($result) && isset($kwota_calkowita)){ ?>
 <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #ff0; width:300px;">
-<?php echo 'Miesięczna rata: '.$result; ?> zł
+    <?php echo 'Kwota całkowita kredytu: '.$kwota_calkowita; ?> zł
+    <br />
+    <?php echo 'Miesięczna rata: '.$result; ?> zł
 </div>
 <?php } ?>
 
